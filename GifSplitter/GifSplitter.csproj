@@ -1,0 +1,12 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <Version>1.2.0</Version>
+    <Description>Gif图片分解工具</Description>
+    <ApplicationIcon>GifSplitter.ico</ApplicationIcon>
+  </PropertyGroup>
+
+</Project>
