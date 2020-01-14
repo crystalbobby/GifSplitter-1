@@ -14,11 +14,11 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GifSplitter")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyDescriptionAttribute("Gif图片分解工具")]
-[assembly: System.Reflection.AssemblyFileVersionAttribute("1.1.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.1.0")]
+[assembly: System.Reflection.AssemblyFileVersionAttribute("1.2.1.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.2.1")]
 [assembly: System.Reflection.AssemblyProductAttribute("GifSplitter")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GifSplitter")]
-[assembly: System.Reflection.AssemblyVersionAttribute("1.1.0.0")]
+[assembly: System.Reflection.AssemblyVersionAttribute("1.2.1.0")]
 
 // 由 MSBuild WriteCodeFragment 类生成。
 

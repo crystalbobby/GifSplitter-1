@@ -51,7 +51,7 @@
             </ListBox.ItemsPanel>
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <Grid ToolTip="{Binding ToolTip}">
+                    <Grid x:Name="AllFrame_Grid" ToolTip="{Binding ToolTip}">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="*"/>
                             <RowDefinition Height="Auto"/>
@@ -61,10 +61,10 @@
                             <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
                         <Border Grid.RowSpan="2" Grid.ColumnSpan="2" BorderThickness="1" BorderBrush="Black">
-                            <Image Source="{Binding Frame}" Height="100"/>
+                            <Image x:Name="AllFrame_Image" Source="{Binding Frame}" Height="100"/>
                         </Border>
                         <Border Grid.Row="1" Grid.Column="1" Background="Black" BorderThickness="0">
-                            <TextBlock Text="{Binding Index}" Foreground="White" Margin="3,0,3,0"/>
+                            <TextBlock x:Name="AllFrame_TextBlock" Text="{Binding Index}" Foreground="White" Margin="3,0,3,0"/>
                         </Border>
                     </Grid>
                 </DataTemplate>

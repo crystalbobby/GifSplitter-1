@@ -23,8 +23,17 @@ namespace GifSplitter
         /// 存储Gif分解后的所有帧
         /// </summary>
         private readonly List<GifFrame> allFrame = new List<GifFrame>();
+        /// <summary>
+        /// Gif图片的文件名(不包含扩展名)
+        /// </summary>
         private string GifFileShortName = "";
+        /// <summary>
+        /// Gif图片的文件名(包含扩展名)
+        /// </summary>
         private string GifFileName = "";
+        /// <summary>
+        /// Gif图片的绝对路径(包含文件名和扩展名)
+        /// </summary>
         private string GifFilePath = "";
 
 
@@ -37,12 +46,12 @@ namespace GifSplitter
         {
             try
             {
-
                 Stream ms = isLocalGif ? new MemoryStream(File.ReadAllBytes(path)) : System.Net.WebRequest.Create(GifFilePath).GetResponse().GetResponseStream();
                 GifBitmapDecoder decoder = new GifBitmapDecoder(ms, BitmapCreateOptions.PreservePixelFormat, BitmapCacheOption.Default);
                 allFrame.Clear();
                 for (int i = 0; i < decoder.Frames.Count; i++)
                 {
+                    Title = (i + 1) + "/" + decoder.Frames.Count + " 正在分解中...";
                     GifFrame gifFrame = new GifFrame()
                     {
                         Frame = decoder.Frames[i],
@@ -52,7 +61,6 @@ namespace GifSplitter
                         DpiY = decoder.Frames[i].DpiY
                     };
                     allFrame.Add(gifFrame);
-                    Title = "已分解" + (i + 1) + "/" + decoder.Frames.Count;
                 }
                 AllFrame_ListBox.ItemsSource = null;
                 AllFrame_ListBox.ItemsSource = allFrame;
@@ -76,7 +84,7 @@ namespace GifSplitter
                 GifFilePath = ofd.FileName;
                 GifFileName = ofd.SafeFileName;
                 GifFileShortName = ofd.SafeFileName.Substring(0, ofd.SafeFileName.LastIndexOf('.'));
-                OpenGif(ofd.FileName,true);
+                OpenGif(ofd.FileName, true);
             }
         }
         private void OpenGifByDrop(object sender, DragEventArgs e)
@@ -180,7 +188,7 @@ namespace GifSplitter
                     {
                         encoder.Save(fileStream);
                     }
-                    Title = "已保存" + (i + 1) + "/" + allFrame.Count;
+                    Title = (i + 1) + "/" + allFrame.Count+"正在保存中...";
                 }
                 Title = GifFilePath;
                 MessageBox.Show("导出完成!");
@@ -211,7 +219,6 @@ namespace GifSplitter
                 MessageBox.Show("保存完成!");
             }
         }
-
         private void GifDetail(object sender, RoutedEventArgs e)
         {
             string detail =
@@ -257,11 +264,10 @@ namespace GifSplitter
                "\r\n版本 : " + v.Major + "." + v.Minor + "." + v.Build + "." + v.Revision +
                "\r\n邮箱 : zzvr@outlook.com" +
                "\r\nQQ : 1575375168" +
-               "\r\n微信 : Guodcx";
+               "\r\n微信 : Guodcx"+
+               "\r\nGitHub : https://github.com/zou-z/GifSplitter";
             MessageBox.Show(about, "关于");
         }
-
-       
     }
 
     /// <summary>
@@ -284,33 +290,10 @@ namespace GifSplitter
         /// <summary>
         /// 绑定数据，保存图片的DpiX信息
         /// </summary>
-        public double DpiX { get; set; }
+        public double DpiX { get; set; } 
         /// <summary>
         /// 绑定数据，保存图片的DpiY信息
         /// </summary>
         public double DpiY { get; set; }
-        //public GifFrame(WriteableBitmap wb, uint index, string tooltip, double dpiX, double dpiY)
-        //{
-        //    Frame = wb;
-        //    Index = index;
-        //    ToolTip = tooltip;
-        //    DpiX = dpiX;
-        //    DpiY = dpiY;
-        //}
-        /// <summary>
-        /// 保存选中的这张图片
-        /// </summary>
-        public void Save(string name)
-        {
-
-        }
-        /// <summary>
-        /// 复制选中的图片
-        /// </summary>
-        /// <returns></returns>
-        public void Copy()
-        {
-
-        }
     }
 }

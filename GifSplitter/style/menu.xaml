@@ -31,7 +31,7 @@
                     <Grid x:Name="bg" Background="WhiteSmoke" Height="33" MinWidth="100" Width="{TemplateBinding Width}">
                         <TextBlock Margin="10 0 10 0" VerticalAlignment="Center" Text="{Binding Header,RelativeSource={RelativeSource TemplatedParent}}"/>
                         <Popup x:Name="SubMenuPopup" Placement="Right" AllowsTransparency="True" Focusable="False" IsOpen="{TemplateBinding IsSubmenuOpen}">
-                            <Border Name="SubmenuBorder" SnapsToDevicePixels="True">
+                            <Border Name="SubmenuBorder" SnapsToDevicePixels="True" BorderThickness="1" BorderBrush="LightGray">
                                 <StackPanel IsItemsHost="True" KeyboardNavigation.DirectionalNavigation="Cycle"/>
                             </Border>
                         </Popup>
